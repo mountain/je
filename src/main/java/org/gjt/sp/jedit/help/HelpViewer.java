@@ -173,10 +173,10 @@ public class HelpViewer extends JFrame implements HelpViewerInterface, HelpHisto
 		viewer = new JEditorPane();
 		viewer.putClientProperty(JEditorPane.HONOR_DISPLAY_PROPERTIES,
 			Boolean.TRUE);
-		
+
 		viewer.setEditable(false);
 		viewer.addHyperlinkListener(new LinkHandler());
-			 
+
 		viewer.setFont(jEdit.getFontProperty("helpviewer.font"));
 		viewer.addPropertyChangeListener(new PropertyChangeHandler());
 		viewer.addKeyListener(new KeyHandler());
@@ -221,7 +221,7 @@ public class HelpViewer extends JFrame implements HelpViewerInterface, HelpHisto
 	//{{{ gotoURL() method
 	/**
 	 * Displays the specified URL in the HTML component.
-	 * 
+	 *
 	 * @param url 		 The URL
 	 * @param addToHistory   Should the URL be added to the back/forward
 	 * 			 history?
@@ -280,7 +280,7 @@ public class HelpViewer extends JFrame implements HelpViewerInterface, HelpHisto
 			}
 
 			historyModel.setCurrentScrollPosition(viewer.getPage(),getCurrentScrollPosition());
-			
+
 			/* call setPage asynchronously, because it can block when
 			   one can't connect to host.
 			   Calling setPage outside from the EDT violates
@@ -291,7 +291,7 @@ public class HelpViewer extends JFrame implements HelpViewerInterface, HelpHisto
 			   Once jEdit sets JDK 7 as dependency, all this should be
 			   reverted to synchronous code.
 			 */
-			SwingWorker<Void, Void> worker = new SwingWorker<>()
+			SwingWorker<Void, Void> worker = new SwingWorker<Void, Void>()
 			{
 				private boolean success;
 
@@ -497,7 +497,7 @@ public class HelpViewer extends JFrame implements HelpViewerInterface, HelpHisto
 				HistoryEntry entry = historyModel.back(HelpViewer.this);
 				if(entry == null)
 				{
-					javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+					javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 				}
 				else
 				{
@@ -509,7 +509,7 @@ public class HelpViewer extends JFrame implements HelpViewerInterface, HelpHisto
 				HistoryEntry entry = historyModel.forward(HelpViewer.this);
 				if(entry == null)
 				{
-					javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+					javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 				}
 				else
 				{

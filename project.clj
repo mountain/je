@@ -17,7 +17,7 @@
                  [org.junit.jupiter/junit-jupiter "5.8.2" :scope "tests"]]
 
   :jvm-opts ["-Xms128m" "-Xmx1g"]
-  :javac-options ["--release" "17"]
+  :javac-options ["--release" "21"]
   :omit-source true
 
   :source-paths ["src/main/clojure"]
