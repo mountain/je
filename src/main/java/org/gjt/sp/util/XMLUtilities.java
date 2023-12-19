@@ -113,7 +113,7 @@ public class XMLUtilities
 	/**
 	 * Convenience method for parsing an XML file. This method will
 	 * wrap the resource in an InputSource and set the source's
-	 * systemId to "ada.jar" (so the source should be able to
+	 * systemId to "jes.jar" (so the source should be able to
 	 * handle any external entities by itself).
 	 *
 	 * <p>SAX Errors are caught and are not propagated to the caller;
@@ -134,7 +134,7 @@ public class XMLUtilities
 			XMLReader parser = SAXParserFactory.newInstance().newSAXParser().getXMLReader();
 			InputSource isrc = new InputSource(
 				new BufferedInputStream(in));
-			isrc.setSystemId("ada.jar");
+			isrc.setSystemId("jes.jar");
 			parser.setContentHandler(handler);
 			parser.setDTDHandler(handler);
 			parser.setEntityResolver(handler);

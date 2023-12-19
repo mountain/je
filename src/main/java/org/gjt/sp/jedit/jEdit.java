@@ -140,7 +140,7 @@ public class jEdit
 		mainThread = Thread.currentThread();
 
 		settingsDirectory = MiscUtilities.constructPath(
-				System.getProperty("user.home"), ".ada");
+				System.getProperty("user.home"), ".je");
 		// On mac, different rules (should) apply
 		// if(OperatingSystem.isMacOS())
 		//	 settingsDirectory = MiscUtilities.constructPath(
@@ -3446,7 +3446,7 @@ public class jEdit
 
 		/* Determine installation directory.
 		 * If the jedit.home property is set, use that.
-		 * Then, look for ada.jar in the classpath.
+		 * Then, look for jes.jar in the classpath.
 		 * If that fails, assume this is the web start version. */
 		jEditHome = System.getProperty("jedit.home");
 		if(jEditHome == null)
@@ -3454,10 +3454,10 @@ public class jEdit
 			String classpath = System
 				.getProperty("java.class.path");
 			int index = classpath.toLowerCase()
-				.indexOf("ada.jar");
+				.indexOf("jes.jar");
 			int start = classpath.lastIndexOf(File
 				.pathSeparator,index) + 1;
-			// if started with java -jar ada.jar
+			// if started with java -jar jes.jar
 			if(start == index)
 			{
 				jEditHome = System.getProperty("user.dir");
@@ -3480,7 +3480,7 @@ public class jEdit
 					// use user.dir as last resort
 					jEditHome = System.getProperty("user.dir");
 
-					Log.log(Log.WARNING,jEdit.class,"ada.jar not in class path!");
+					Log.log(Log.WARNING,jEdit.class,"jes.jar not in class path!");
 					Log.log(Log.WARNING,jEdit.class,"Assuming jEdit is installed in "
 						+ jEditHome + '.');
 					Log.log(Log.WARNING,jEdit.class,"Override with jedit.home "
@@ -3492,8 +3492,11 @@ public class jEdit
 		jEditHome = MiscUtilities.resolveSymlinks(jEditHome);
 
 		Log.log(Log.MESSAGE,jEdit.class,"jEdit home directory is " + jEditHome);
+		//keymapManager = new KeymapManagerImpl(propertyManager,
+		//      new File(jEditHome, "keymaps"),
+		//      userKeymapFolder);
 		keymapManager = new KeymapManagerImpl(propertyManager,
-		      new File(jEditHome, "keymaps"),
+		      new File(settingsDirectory, "keymaps"),
 		      userKeymapFolder);
 
 		if(settingsDirectory != null)
@@ -3571,7 +3574,7 @@ public class jEdit
 				+ "- jedit.props\n"
 				+ "- jedit_gui.props\n"
 				+ "- jedit_en.props\n"
-				+ "ada.jar is probably corrupt.");
+				+ "jes.jar is probably corrupt.");
 			Log.log(Log.ERROR,jEdit.class,e);
 			System.exit(1);
 		}

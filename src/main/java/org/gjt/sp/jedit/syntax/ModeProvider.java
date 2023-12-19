@@ -391,7 +391,7 @@ public class ModeProvider
 		try
 		{
 			InputSource isrc = new InputSource(grammar);
-			isrc.setSystemId("ada.jar");
+			isrc.setSystemId("jes.jar");
 			parser.setContentHandler(xmh);
 			parser.setDTDHandler(xmh);
 			parser.setEntityResolver(xmh);

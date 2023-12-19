@@ -83,7 +83,7 @@ public class MirrorList
 		Reader in = new BufferedReader(new StringReader(xml));
 
 		InputSource isrc = new InputSource(in);
-		isrc.setSystemId("ada.jar");
+		isrc.setSystemId("jes.jar");
 		XMLReader parser = SAXParserFactory.newInstance().newSAXParser().getXMLReader();
 		parser.setContentHandler(handler);
 		parser.setDTDHandler(handler);

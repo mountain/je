@@ -14,7 +14,8 @@
                  [junit/junit "4.13" :scope "tests"]
                  [org.mockito/mockito-core "3.12.4" :scope "tests"]
                  [org.hamcrest/hamcrest-core "2.2" :scope "tests"]
-                 [org.junit.jupiter/junit-jupiter "5.8.2" :scope "tests"]]
+                 [org.junit.jupiter/junit-jupiter "5.8.2" :scope "tests"]
+                 [com.googlecode.junit-toolbox/junit-toolbox "2.4"]]
 
   :jvm-opts ["-Xms128m" "-Xmx1g"]
   :javac-options ["--release" "21"]
@@ -23,10 +24,7 @@
   :source-paths ["src/main/clojure"]
   :java-source-paths ["src/main/java" "src/tests/java/"]
   :resource-paths ["src/main/java" "src/main/resources"]
-  :test-paths ["src/tests/java/"]
-  :test-selectors {:default (complement :integration)
-                   :integration :integration
-                   :all (constantly true)}
+  :test-paths ["src/tests/clojure/"]
 
   :aot :all
 

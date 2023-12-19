@@ -139,7 +139,7 @@ class PluginList extends Task
 		PluginListHandler handler = new PluginListHandler(this);
 		XMLReader parser = SAXParserFactory.newInstance().newSAXParser().getXMLReader();
 		InputSource isrc = new InputSource(new StringReader(pluginListXml));
-		isrc.setSystemId("ada.jar");
+		isrc.setSystemId("jes.jar");
 		parser.setContentHandler(handler);
 		parser.setDTDHandler(handler);
 		parser.setEntityResolver(handler);
