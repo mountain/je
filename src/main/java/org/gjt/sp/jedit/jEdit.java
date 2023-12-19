@@ -3490,6 +3490,7 @@ public class jEdit
 		}
 
 		jEditHome = MiscUtilities.resolveSymlinks(jEditHome);
+        jEditHome = settingsDirectory;
 
 		Log.log(Log.MESSAGE,jEdit.class,"jEdit home directory is " + jEditHome);
 		//keymapManager = new KeymapManagerImpl(propertyManager,
